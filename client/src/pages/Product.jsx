@@ -1,10 +1,10 @@
-import { Add, Remove } from "@material-ui/icons";
-import styled from "styled-components";
-import Announcement from "../components/Announcement";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Newsletter from "../components/Newsletter";
-import { mobile } from "../responsive";
+import { Add, Remove } from "@material-ui/icons"
+import styled from "styled-components"
+import Announcement from "../components/Announcement"
+import Footer from "../components/Footer"
+import Navbar from "../components/Navbar"
+import { mobile } from "../responsive"
+//import Newsletter from "../components/Newsletter"
 
 const Container = styled.div``;
 
@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   padding: 50px;
   display: flex;
   ${mobile({ padding: "10px", flexDirection:"column" })}
+  
 `;
 
 const ImgContainer = styled.div`
@@ -23,12 +24,14 @@ const Image = styled.img`
   height: 90vh;
   object-fit: cover;
   ${mobile({ height: "40vh" })}
+ 
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
   ${mobile({ padding: "10px" })}
+  
 `;
 
 const Title = styled.h1`
@@ -46,10 +49,11 @@ const Price = styled.span`
 
 const FilterContainer = styled.div`
   width: 50%;
-  margin: 30px 0px;
+  margin: 20px 0px;
   display: flex;
   justify-content: space-between;
   ${mobile({ width: "100%" })}
+
 `;
 
 const Filter = styled.div`
@@ -62,6 +66,11 @@ const FilterTitle = styled.span`
   font-weight: 200;
 `;
 
+const FilterTitleColor = styled.span`
+  font-size: 20px;
+  font-weight: 200;
+  margin-left: 20px;
+`;
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
@@ -84,6 +93,7 @@ const AddContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   ${mobile({ width: "100%" })}
+
 `;
 
 const AmountContainer = styled.div`
@@ -109,63 +119,82 @@ const Button = styled.button`
   background-color: white;
   cursor: pointer;
   font-weight: 500;
-
   &:hover{
       background-color: #f8f4f4;
   }
 `;
 
 const Product = () => {
-  return (
-    <Container>
-      <Navbar />
-      <Announcement />
-      <Wrapper>
-        <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
-        </ImgContainer>
-        <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
-          <Desc>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
-          </Desc>
-          <Price>$ 20</Price>
-          <FilterContainer>
-            <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-            </Filter>
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-          </FilterContainer>
-          <AddContainer>
-            <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
-            </AmountContainer>
-            <Button>ADD TO CART</Button>
-          </AddContainer>
-        </InfoContainer>
-      </Wrapper>
-      <Newsletter />
-      <Footer />
-    </Container>
-  );
-};
+    return (
+        <Container>
+            <Navbar/>
+            <Announcement/>
+            <Wrapper>
+                <ImgContainer>
+                    <Image src="https://i.postimg.cc/kGSgm0Xj/ryan-hoffman-6-Nub980b-I3-I-unsplash.jpg"/>
+                </ImgContainer>
+                <InfoContainer>
+                    <Title>
+                        Lacoste Shirt
+                    </Title>
+                    <Desc>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, nam accusantium beatae velit ipsam assumenda id alias doloribus voluptatibus nulla, minus nobis voluptates voluptatem officiis voluptate molestiae tempore dolorem dicta.
+                    </Desc>
+                    <Price>
+                        $40
+                    </Price>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <Filter>
+                            <FilterTitle>
+                                Size
+                            </FilterTitle>
+                            <FilterSize>
+                                <FilterSizeOption>
+                                    XS
+                                </FilterSizeOption>
+                                <FilterSizeOption>
+                                    S
+                                </FilterSizeOption>
+                                <FilterSizeOption>
+                                    M
+                                </FilterSizeOption>
+                                <FilterSizeOption>
+                                    L
+                                </FilterSizeOption>
+                                <FilterSizeOption>
+                                    XL
+                                </FilterSizeOption>
+                            </FilterSize>
+                        </Filter>
+                        <br/>
+                    <FilterTitleColor>
+                         Color
+                    </FilterTitleColor>
+                    <FilterContainer>
+                        <Filter>
+                            
+                            <FilterColor color="black"/>  
+                            <FilterColor color="blue"/>
+                            <FilterColor color="gray"/>           
+                        </Filter>
+                        
+                    </FilterContainer>
+                    <AddContainer>
+                        <AmountContainer>
+                            <Remove/>
+                            <Amount>1</Amount>
+                            <Add/>
+                        </AmountContainer>
+                        <Button>ADD TO CART</Button>
+                    </AddContainer>
+                </InfoContainer>
+            </Wrapper>
+            <Footer/>
+        </Container>
+    )
+}
 
-export default Product;
+export default Product
