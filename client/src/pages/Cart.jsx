@@ -169,9 +169,13 @@ useEffect(()=>{
             const res = await userRequest.post("/checkout/payment",{
                 tokenId: stripeToken.id,
                 amount: 500,
+                //change after to cart.total*100
                 
             });
-            history.push("/success",{data:res.data});
+            history.push
+            ("/success",
+            {stripeData:res.data,
+            products: cart,});
         } catch {}
     };
     stripeToken && makeRequest();

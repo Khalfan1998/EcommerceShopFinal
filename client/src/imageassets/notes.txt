@@ -1,5 +1,8 @@
 TO DO:
 Fix Colors in product page to be under Color text
+1:22 Video 3 Creating Order
+Cart Page : amount: cart.total*100
+Move Login button to the right
 
 
 
