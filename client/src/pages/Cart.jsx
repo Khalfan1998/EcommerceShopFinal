@@ -6,6 +6,12 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import { mobile } from '../responsive'
 import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import { useState, useEffect } from 'react'
+import { userRequest } from '../requestMethods'
+import { useHistory } from 'react-router-dom'
+
+const KEY = "pk_test_51K9luKDHgD7vvY49C8bHgEUCNYjaGuaA0NF9clG1WMRNctR3dINn6HFElfUsoPlgRFGpjnYAiZTAhrKkeIscPKOR00wBTuQuns"
 
 const Container = styled.div`
 
@@ -150,7 +156,26 @@ font-weight: 600;
 
 const Cart = () => {
 const cart = useSelector(state=>state.cart)
+const [stripeToken,setStripeToken] = useState(null)
+const history = useHistory()
 
+const onToken = (token)=>{
+    setStripeToken(token);
+}
+
+useEffect(()=>{
+    const makeRequest = async () =>{
+        try {
+            const res = await userRequest.post("/checkout/payment",{
+                tokenId: stripeToken.id,
+                amount: 500,
+                
+            });
+            history.push("/success",{data:res.data});
+        } catch {}
+    };
+    stripeToken && makeRequest();
+},[stripeToken,cart.total,history])
     return (
         <Container>
             <Navbar/>
@@ -248,7 +273,19 @@ const cart = useSelector(state=>state.cart)
                            $ {cart.total}
                             </SummaryItemPrice>
                         </SummaryItem>
-                        <Button>CHECKOUT NOW</Button>
+                        <StripeCheckout
+                        name="Khalfan Shop"
+                        image="https://i.postimg.cc/pTFsScVB/display2-removebg-preview.png"
+                        billingAddress
+                        shippingAddress
+                        description={`Your total is $${cart.total}`}
+                        amount={cart.total*100}
+                        token={onToken}
+                        stripeKey={KEY}
+                        >
+                            <Button>CHECKOUT NOW</Button>
+                        </StripeCheckout>
+                        
                     </Summary>
                 </Bottom>
             </Wrapper>
