@@ -29,21 +29,21 @@ export const categories = [
     id: 1,
     img: "https://i.postimg.cc/02WQxGYS/nimble-made-BKYe-LLB1-Ox-I-unsplash.jpg",
     title: "SHIRT STYLE",
-    cat:"women"
+    cat: "woman",
   },
 
   {
     id: 2,
     img: "https://i.postimg.cc/P5JC8VXK/amanda-vick-oh-Wf6-Yuz-OQk-unsplash.jpg",
     title: "JACKET STYLE",
-    cat:"jacket"
+    cat: "jacket",
   },
 
   {
     id: 3,
     img: "https://i.postimg.cc/fTwGC607/hatnew.jpg",
     title: "HAT STYLE",
-    cat:"hats"
+    cat: "hats",
   },
 ];
 

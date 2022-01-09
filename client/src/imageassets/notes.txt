@@ -1,4 +1,6 @@
 TO DO:
+Fix products connecting to DB
+
 
 const KEY = "pk_test_51K9luKDHgD7vvY49C8bHgEUCNYjaGuaA0NF9clG1WMRNctR3dINn6HFElfUsoPlgRFGpjnYAiZTAhrKkeIscPKOR00wBTuQuns"
 FIX STRIPE SECRET KEY IN ENV, REMOVE IT FROM STRIPE.JS
@@ -13,8 +15,8 @@ admin
 
 
 
-Video 2 Timestamp:
-1:51:10
+Video 3 Timestamp:
+30:45
 
 
 
