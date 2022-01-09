@@ -1,5 +1,6 @@
 TO DO:
-Fix products connecting to DB
+Fix Colors in product page to be under Color text
+
 
 
 const KEY = "pk_test_51K9luKDHgD7vvY49C8bHgEUCNYjaGuaA0NF9clG1WMRNctR3dINn6HFElfUsoPlgRFGpjnYAiZTAhrKkeIscPKOR00wBTuQuns"
@@ -16,8 +17,7 @@ admin
 
 
 Video 3 Timestamp:
-30:45
-
+1:05:00
 
 
 
