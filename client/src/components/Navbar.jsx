@@ -49,10 +49,15 @@ const Center = styled.div`
 `
 
 const Logo = styled.h1`
+"Logo:link": { textDecoration: "none" },
+"Logo:visited": { textDecoration: "none" },
+"Logo:hover": { textDecoration: "underline" },
+"Logo:active": { textDecoration: "underline" }
+    color: black;
     font-weight: bold;
     ${mobile({ fontSize: "24px" })}
 `
-
+    
 const Right = styled.div`
     flex:1;
     display: flex;
@@ -62,6 +67,7 @@ const Right = styled.div`
 `
 
 const MenuItem = styled.div`
+    color: black;
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
@@ -82,10 +88,16 @@ const Navbar = () => {
                 <Search style={{color:"gray", fontSize:16}}/>
             </SearchContainer>
             </Left>
+            <Link to="/" style={{textDecoration:"none"}}>
             <Center><Logo>SHOP.</Logo></Center>
+            </Link>
             <Right>
+            <Link to="/register" style={{textDecoration:"none"}}>
                 <MenuItem>REGISTER</MenuItem>
+                </Link>
+                <Link to="/login" style={{textDecoration:"none"}}>
                 <MenuItem>SIGN IN</MenuItem>
+                </Link>
                 <Link to="/cart">
                 <MenuItem>
                     <Badge badgeContent={quantity} color="primary">
