@@ -10,6 +10,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { useState, useEffect } from 'react'
 import { userRequest } from '../requestMethods'
 import { useHistory } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const KEY = "pk_test_51K9luKDHgD7vvY49C8bHgEUCNYjaGuaA0NF9clG1WMRNctR3dINn6HFElfUsoPlgRFGpjnYAiZTAhrKkeIscPKOR00wBTuQuns"
 
@@ -30,14 +31,22 @@ align-items: center;
 justify-content: space-between;
 padding: 20px;
 `
-
-const TopButton = styled.button`
+const ClearButton = styled.button`
 padding: 10px;
 font-weight: 600;
 cursor: pointer;
 border: ${props=>props.type === "filled" && "none"};
 background-color: ${props=>props.type === "filled" ? "black" : "transparent"};
 color: ${props=>props.type === "filled" && "white"};
+`
+
+const TopButton = styled.button`
+padding: 10px;
+font-weight: 600;
+cursor: pointer;
+border: ${props=>props.type === "filled" && "none"};
+background-color: ${props=>props.type === "filled" ? "#F1C55B" : "transparent"};
+color: ${props=>props.type === "filled" && "black"};
 `
 
 const TopTexts = styled.div`
@@ -148,8 +157,8 @@ const SummaryItemPrice = styled.span`
 const Button = styled.button`
 width: 100%;
 padding: 10px;
-background-color: black;
-color: white;
+background-color: #F1C55B;
+color: black;
 font-weight: 600;
 `
 
@@ -189,20 +198,33 @@ useEffect(()=>{
                     YOUR SHOPPING CART
                 </Title>
                 <Top>
+                <Link to="/products/jacket">
                     <TopButton>
                         CONTINUE SHOPPING
                     </TopButton>
+                    </Link>
                     <TopTexts>
                         <TopText>
                             Shopping Bag(2)
                         </TopText>
-                        <TopText>
-                            Your Wishlist (0)
-                        </TopText>
+                        <ClearButton type="filled">
+                        Clear Cart
+                    </ClearButton>
                     </TopTexts>
+                    <StripeCheckout
+                        name="Khalfan Shop"
+                        image="https://i.postimg.cc/pTFsScVB/display2-removebg-preview.png"
+                        billingAddress
+                        shippingAddress
+                        description={`Your total is $${cart.total}`}
+                        amount={cart.total*100}
+                        token={onToken}
+                        stripeKey={KEY}
+                        >
                     <TopButton type="filled">
                         CHECKOUT NOW
                     </TopButton>
+                    </StripeCheckout>
                 </Top>
                 <Bottom>
                     <Info>
