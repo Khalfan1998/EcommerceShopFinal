@@ -1,0 +1,8 @@
+{
+	"appId": "io.ionic.EcommerceShopFinal",
+	"appName": "EcommerceShopFinal",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "build",
+	"cordova": {}
+}
